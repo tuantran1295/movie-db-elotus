@@ -7,6 +7,10 @@
   text-align: center;
   color: #fff;
   
+  .light-theme & {
+    color: #212529;
+  }
+  
   &__icon {
     color: #e50914;
     margin-bottom: 1rem;
@@ -17,6 +21,10 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #fff;
+    
+    .light-theme & {
+      color: #212529;
+    }
   }
   
   &__text {
@@ -25,6 +33,10 @@
     margin-bottom: 2rem;
     max-width: 400px;
     line-height: 1.5;
+    
+    .light-theme & {
+      color: #6c757d;
+    }
   }
   
   &__retry {

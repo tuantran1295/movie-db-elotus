@@ -7,6 +7,7 @@ import TabBar from './components/TabBar/TabBar';
 import MovieList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import './App.scss';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMorePages, setHasMorePages] = useState(true);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [showLoadingOverlay, setShowLoadingOverlay] = useState(false);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
@@ -31,6 +33,9 @@ function App() {
 
   const fetchMovies = useCallback(async (tab: ActiveTab, page: number = 1, append: boolean = false) => {
     try {
+      if (!append) {
+        setShowLoadingOverlay(true);
+      }
       setIsLoading(true);
       setError(null);
       
@@ -51,6 +56,7 @@ function App() {
       console.error('Error fetching movies:', err);
     } finally {
       setIsLoading(false);
+      setShowLoadingOverlay(false);
     }
   }, []);
 
@@ -61,6 +67,7 @@ function App() {
     }
 
     try {
+      setShowLoadingOverlay(true);
       setIsLoading(true);
       setError(null);
       const response = await apiService.searchMovies(query);
@@ -70,6 +77,7 @@ function App() {
       console.error('Error searching movies:', err);
     } finally {
       setIsLoading(false);
+      setShowLoadingOverlay(false);
     }
   }, []);
 
@@ -164,7 +172,7 @@ function App() {
             <MovieList
               movies={displayMovies}
               viewMode={viewMode}
-              isLoading={isLoading}
+              isLoading={isLoading && !showLoadingOverlay}
               onMovieClick={handleMovieClick}
             />
             
@@ -181,6 +189,13 @@ function App() {
           </>
         )}
       </main>
+
+      {showLoadingOverlay && (
+        <div className="app__loading-overlay">
+          <LoadingSpinner size="large" />
+          <div className="app__loading-text">Loading movies...</div>
+        </div>
+      )}
 
       {selectedMovie && (
         <MovieDetails

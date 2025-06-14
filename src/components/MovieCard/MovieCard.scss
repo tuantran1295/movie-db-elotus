@@ -6,10 +6,20 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
   
+  .light-theme & {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-color: rgba(229, 9, 20, 0.3);
+    
+    .light-theme & {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
     
     .movie-card__overlay {
       opacity: 1;
@@ -109,6 +119,10 @@
     padding: 1rem;
     color: #fff;
     
+    .light-theme & {
+      color: #212529;
+    }
+    
     .movie-card--grid & {
       flex: 1;
       display: flex;
@@ -138,6 +152,10 @@
     font-size: 0.875rem;
     color: #ccc;
     
+    .light-theme & {
+      color: #6c757d;
+    }
+    
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
@@ -161,6 +179,10 @@
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 0.75rem;
+    
+    .light-theme & {
+      color: #6c757d;
+    }
   }
 }
 

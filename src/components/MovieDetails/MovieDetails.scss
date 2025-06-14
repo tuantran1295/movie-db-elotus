@@ -11,7 +11,7 @@
   
   .light-theme & {
     background: #fff;
-    color: #333;
+    color: #212529;
   }
   
   &__close {
@@ -30,7 +30,7 @@
     
     .light-theme & {
       background: rgba(255, 255, 255, 0.9);
-      color: #333;
+      color: #212529;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
@@ -149,7 +149,7 @@
     padding-top: 2rem;
     
     .light-theme & {
-      color: #333;
+      color: #212529;
     }
     
     @media (max-width: 768px) {
@@ -176,7 +176,7 @@
     margin-bottom: 2rem;
     
     .light-theme & {
-      color: #666;
+      color: #6c757d;
     }
     
     @media (max-width: 768px) {
@@ -216,7 +216,7 @@
     margin-left: 0.5rem;
     
     .light-theme & {
-      color: #666;
+      color: #6c757d;
     }
   }
   
@@ -250,7 +250,7 @@
       color: #fff;
       
       .light-theme & {
-        color: #333;
+        color: #212529;
       }
     }
     
@@ -260,7 +260,7 @@
       color: #ccc;
       
       .light-theme & {
-        color: #666;
+        color: #6c757d;
       }
     }
   }
@@ -278,7 +278,7 @@
       color: #fff;
       
       .light-theme & {
-        color: #333;
+        color: #212529;
       }
     }
   }
@@ -311,7 +311,7 @@
     min-width: 100px;
     
     .light-theme & {
-      color: #666;
+      color: #6c757d;
     }
   }
   
