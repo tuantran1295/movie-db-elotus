@@ -1,0 +1,53 @@
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #fff;
+  
+  &__icon {
+    color: #e50914;
+    margin-bottom: 1rem;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  &__text {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+  
+  &__retry {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: #b8070f;
+      transform: translateY(-2px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
