@@ -9,6 +9,11 @@
   overflow-y: auto;
   animation: fadeIn 0.3s ease;
   
+  .light-theme & {
+    background: #fff;
+    color: #333;
+  }
+  
   &__close {
     position: fixed;
     top: 2rem;
@@ -23,9 +28,20 @@
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
     
+    .light-theme & {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
     &:hover {
       background: rgba(229, 9, 20, 0.8);
       transform: scale(1.1);
+      
+      .light-theme & {
+        background: rgba(229, 9, 20, 0.1);
+        color: #e50914;
+      }
     }
     
     @media (max-width: 768px) {
@@ -71,6 +87,15 @@
       rgba(0, 0, 0, 0.7) 70%,
       rgba(0, 0, 0, 0.9) 100%
     );
+    
+    .light-theme & {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.7) 70%,
+        rgba(255, 255, 255, 0.95) 100%
+      );
+    }
   }
   
   &__content {
@@ -112,28 +137,9 @@
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  }
-  
-  &__play {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #e50914;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
     
-    &:hover {
-      background: #b8070f;
-      transform: translateX(-50%) translateY(-2px);
+    .light-theme & {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
   }
   
@@ -141,6 +147,10 @@
     flex: 1;
     color: #fff;
     padding-top: 2rem;
+    
+    .light-theme & {
+      color: #333;
+    }
     
     @media (max-width: 768px) {
       padding-top: 0;
@@ -164,6 +174,10 @@
     color: #ccc;
     font-style: italic;
     margin-bottom: 2rem;
+    
+    .light-theme & {
+      color: #666;
+    }
     
     @media (max-width: 768px) {
       text-align: center;
@@ -200,6 +214,10 @@
     color: #ccc;
     font-size: 0.9rem;
     margin-left: 0.5rem;
+    
+    .light-theme & {
+      color: #666;
+    }
   }
   
   &__genres {
@@ -230,12 +248,20 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
       color: #fff;
+      
+      .light-theme & {
+        color: #333;
+      }
     }
     
     p {
       font-size: 1.1rem;
       line-height: 1.7;
       color: #ccc;
+      
+      .light-theme & {
+        color: #666;
+      }
     }
   }
   
@@ -250,6 +276,10 @@
       font-size: 1.25rem;
       margin-bottom: 1rem;
       color: #fff;
+      
+      .light-theme & {
+        color: #333;
+      }
     }
   }
   
@@ -269,12 +299,20 @@
     gap: 0.5rem;
     padding: 0.75rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .light-theme & {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
   }
   
   &__label {
     font-weight: 600;
     color: #ccc;
     min-width: 100px;
+    
+    .light-theme & {
+      color: #666;
+    }
   }
   
   &__companies,
@@ -293,6 +331,10 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    
+    .light-theme & {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 }
 

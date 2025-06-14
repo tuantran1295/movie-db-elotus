@@ -4,7 +4,6 @@ import { apiService } from './services/api';
 import { useDebounce } from './hooks/useDebounce';
 import Header from './components/Header/Header';
 import TabBar from './components/TabBar/TabBar';
-import ViewToggle from './components/ViewToggle/ViewToggle';
 import MovieList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
@@ -21,8 +20,14 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMorePages, setHasMorePages] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  // Apply theme to body
+  useEffect(() => {
+    document.body.className = isDarkTheme ? '' : 'light-theme';
+  }, [isDarkTheme]);
 
   const fetchMovies = useCallback(async (tab: ActiveTab, page: number = 1, append: boolean = false) => {
     try {
@@ -112,6 +117,10 @@ function App() {
     }
   };
 
+  const handleThemeToggle = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
   const displayMovies = searchQuery.trim() ? searchResults : movies;
   const showLoadMore = !searchQuery.trim() && hasMorePages && !isLoading;
 
@@ -120,30 +129,29 @@ function App() {
       <Header 
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
+        isDarkTheme={isDarkTheme}
+        onThemeToggle={handleThemeToggle}
       />
       
       {!searchQuery.trim() && (
         <TabBar 
           activeTab={activeTab}
           onTabChange={handleTabChange}
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
         />
       )}
       
-      <div className="app__controls">
-        <div className="app__controls-container">
-          {searchQuery.trim() && (
+      {searchQuery.trim() && (
+        <div className="app__controls">
+          <div className="app__controls-container">
             <div className="app__search-info">
               <h2>Search Results for "{searchQuery}"</h2>
               <p>{searchResults.length} movies found</p>
             </div>
-          )}
-          
-          <ViewToggle 
-            viewMode={viewMode}
-            onViewModeChange={setViewMode}
-          />
+          </div>
         </div>
-      </div>
+      )}
 
       <main className="app__main">
         {error ? (

@@ -6,7 +6,6 @@ import {
   Clock, 
   DollarSign, 
   Globe,
-  Play,
   X
 } from 'lucide-react';
 import { MovieDetails as MovieDetailsType, Movie } from '../../types/movie';
@@ -108,10 +107,6 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, onClose }) => {
               className="movie-details__poster-image"
               skeletonVariant="poster"
             />
-            <button className="movie-details__play">
-              <Play size={24} />
-              Watch Trailer
-            </button>
           </div>
 
           <div className="movie-details__info">
