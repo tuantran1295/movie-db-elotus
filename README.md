@@ -45,8 +45,8 @@ A modern, responsive movie discovery web application built with React and TypeSc
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd elotus-movie
+git clone git@github.com:tuantran1295/movie-db-elotus.git
+cd movie-db-elotus
 ```
 
 2. Install dependencies:
@@ -116,7 +116,7 @@ This application uses The Movie Database (TMDB) API to fetch movie data. The API
 
 Here's a walkthrough of implemented user stories:
 
-![Demo](https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif)
+![Demo](./assets/User-story-movie-compressed.gif)
 
 ## Performance Optimizations
 
@@ -125,21 +125,6 @@ Here's a walkthrough of implemented user stories:
 - **Skeleton Loading**: Smooth loading states improve perceived performance
 - **Efficient Re-renders**: Optimized component updates with useCallback and useMemo
 - **Image Optimization**: Multiple image sizes for different screen densities
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
@@ -156,9 +141,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-## Acknowledgments
-
-- [The Movie Database (TMDB)](https://www.themoviedb.org/) for providing the movie data API
-- [Lucide React](https://lucide.dev/) for the beautiful icon set
-- [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/) communities for excellent documentation and tools
