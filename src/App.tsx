@@ -23,6 +23,7 @@ function App() {
   const [hasMorePages, setHasMorePages] = useState(true);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const [showLoadingOverlay, setShowLoadingOverlay] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
@@ -35,8 +36,10 @@ function App() {
     try {
       if (!append) {
         setShowLoadingOverlay(true);
+        setIsLoading(true);
+      } else {
+        setIsLoadingMore(true);
       }
-      setIsLoading(true);
       setError(null);
       
       const response = tab === 'now_playing' 
@@ -57,6 +60,7 @@ function App() {
     } finally {
       setIsLoading(false);
       setShowLoadingOverlay(false);
+      setIsLoadingMore(false);
     }
   }, []);
 
@@ -112,7 +116,7 @@ function App() {
   };
 
   const handleLoadMore = () => {
-    if (hasMorePages && !isLoading) {
+    if (hasMorePages && !isLoading && !isLoadingMore) {
       fetchMovies(activeTab, currentPage + 1, true);
     }
   };
@@ -130,7 +134,7 @@ function App() {
   };
 
   const displayMovies = searchQuery.trim() ? searchResults : movies;
-  const showLoadMore = !searchQuery.trim() && hasMorePages && !isLoading;
+  const showLoadMore = !searchQuery.trim() && hasMorePages && !isLoading && !isLoadingMore;
 
   return (
     <div className="app">
@@ -181,8 +185,9 @@ function App() {
                 <button 
                   className="app__load-more-button"
                   onClick={handleLoadMore}
+                  disabled={isLoadingMore}
                 >
-                  Load More Movies
+                  {isLoadingMore ? 'Loading...' : 'Load More Movies'}
                 </button>
               </div>
             )}
@@ -190,7 +195,7 @@ function App() {
         )}
       </main>
 
-      {showLoadingOverlay && (
+      {(showLoadingOverlay || isLoadingMore) && (
         <div className="app__loading-overlay">
           <LoadingSpinner size="large" />
           <div className="app__loading-text">Loading movies...</div>

@@ -5,9 +5,14 @@
   
   &__circle {
     border: 3px solid rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #e50914;
+    border-left: 3px solid #007bff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    
+    .light-theme & {
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-left: 3px solid #007bff;
+    }
   }
   
   &--small &__circle {

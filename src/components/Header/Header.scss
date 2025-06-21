@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(229, 9, 20, 0.1));
+  background: linear-gradient(135deg, rgba(0, 31, 63, 0.9), rgba(0, 123, 255, 0.1));
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
@@ -7,7 +7,7 @@
   z-index: 100;
   
   .light-theme & {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(229, 9, 20, 0.05));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(0, 123, 255, 0.05));
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   
@@ -31,13 +31,13 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #e50914;
+    color: #007bff;
     font-weight: 700;
     font-size: 1.5rem;
     
     h1 {
       margin: 0;
-      background: linear-gradient(45deg, #e50914, #ff6b6b);
+      background: linear-gradient(45deg, #007bff, #4dabf7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -73,12 +73,12 @@
     }
     
     &:hover {
-      background: rgba(229, 9, 20, 0.2);
-      border-color: #e50914;
+      background: rgba(0, 123, 255, 0.2);
+      border-color: #007bff;
       transform: scale(1.1);
       
       .light-theme & {
-        background: rgba(229, 9, 20, 0.1);
+        background: rgba(0, 123, 255, 0.1);
       }
     }
   }
@@ -126,9 +126,9 @@
     
     &:focus {
       outline: none;
-      border-color: #e50914;
+      border-color: #007bff;
       background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
       
       .light-theme & {
         background: rgba(0, 0, 0, 0.08);
