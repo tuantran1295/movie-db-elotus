@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="header__container">
         <div className="header__logo">
           <Film size={32} />
-          <h1>Elotus Movie</h1>
+          <h1>iFlix</h1>
         </div>
         
         <div className="header__search">

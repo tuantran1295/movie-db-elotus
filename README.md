@@ -1,4 +1,4 @@
-# Elotus Movie
+# iFlix
 
 A modern, responsive movie discovery web application built with React and TypeScript. Browse the latest movies, discover top-rated films, and explore detailed movie information with a beautiful, cinema-inspired interface.
 
@@ -45,8 +45,8 @@ A modern, responsive movie discovery web application built with React and TypeSc
 
 1. Clone the repository:
 ```bash
-git clone git@github.com:tuantran1295/movie-db-elotus.git
-cd movie-db-elotus
+git clone git@github.com:tuantran1295/movie-db-iflix.git
+cd movie-db-iflix
 ```
 
 2. Install dependencies:
